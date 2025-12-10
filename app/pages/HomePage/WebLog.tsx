@@ -2,38 +2,62 @@
 import React from "react";
 import Image from "next/image";
 
-export default function CutoutCornerCard() {
+export default function BlogCards() {
+    const cards = [
+        {
+            img: "/images/pic1.jpg",
+            title: "بهست؟",
+            desc: "لورمت...",
+            time: " دقیقه",
+            tags: ["میزبانی وب", "مقالات هاست"],
+        },
+        {
+            img: "/images/pic2.jpg",
+            title: "عنوان دوم کارت",
+            desc: "توضیح کارت دوم اینجا قرار می‌گیرد و نمونه متن کوتاه است...",
+            time: "۳ دقیقه",
+            tags: ["میزبانی وب"],
+        },
+        {
+            img: "/images/pic3.jpg",
+            title: "عنوان سوم کارت",
+            desc: "توضیح کارت سوم اینجا قرار می‌گیرد و خلاصه‌ای از محتواست...",
+            time: "۴ دقیقه",
+            tags: ["مقالات هاست"],
+        },
+    ];
+
     return (
-        <div className="relative w-80">
-            <div className="flex items-center justify-center text-center font-black text-3xl my-15 gap-5">
-                <span className="h-0.5 w-80 bg-linear-to-r from-black to-transparent mr-2"></span>
-                وبلاگ مکین و تازه های آموزش وب
-                <span className="h-0.5 w-80 bg-linear-to-l from-black to-transparent ml-2"></span>
-            </div>
-            <div
-                className="border border-gray-300 shadow-md overflow-visible rounded-lg"
-                style={{
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px))",
-                }}
-            >
-                <Image
-                    src="/images/pic1.jpg"
-                    alt="example"
-                    width={320}
-                    height={20000000000}
-                    className="w-full h-44 object-cover rounded-t-lg"
-                />
-                <div className="p-4">
-                    <h3 className="text-lg font-semibold mb-2">عنوان </h3>
-                    <p className="text-gray-700">توضیح.</p>
-                </div>
-            </div>
-            <div className="">
-                <button
-                    className="absolute bottom-0 left-0 transform translate-x-2 translate-y-2 bg-orange-500 text-white w-10 h-10 rounded-md flex items-center justify-center z-20"
-                >
-                    n
-                </button>
+        <div className="w-full px-8 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {cards.map((card, index) => (
+                    <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden relative">
+                        <Image
+                            src={card.img}
+                            alt={card.title}
+                            width={400}
+                            height={200}
+                            className="w-full h-44 object-cover"
+                        />
+                        <div className="p-4">
+                            <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
+                            <p className="text-gray-700 text-sm">{card.desc}</p>
+                        </div>
+                        <div className="flex items-center justify-between px-4 pb-4">
+                            <span className="text-gray-400 text-xs">مدت زمان مطالعه: {card.time}</span>
+                            <div className="flex gap-2">
+                                {card.tags.map((tag, idx) => (
+                                    <button
+                                        key={idx}
+                                        className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-md"
+                                    >
+                                        {tag}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
