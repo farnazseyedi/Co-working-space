@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 export default function Typewriter() {
-    const words = ["استخدام", "پیشرفت", "آینده", "شبکه سازی"];
+    const words = useMemo(() => ["استخدام", "پیشرفت", "آینده", "شبکه سازی"], []);
+
     const [text, setText] = useState("");
     const [wordIndex, setWordIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -31,7 +33,7 @@ export default function Typewriter() {
         }, typingSpeed);
 
         return () => clearTimeout(handler);
-    }, [text, isDeleting, wordIndex]);
+    }, [text, isDeleting, wordIndex, words]);
 
     return (
         <span style={{ fontSize: "24px", fontWeight: "bold" }}>

@@ -6,9 +6,9 @@ export default function CutoutCornerCard() {
     return (
         <div className="relative w-80">
             <div className="flex items-center justify-center text-center font-black text-3xl my-15 gap-5">
-                <span className="h-0.5 w-80 bg-gradient-to-r from-black to-transparent mr-2"></span>
+                <span className="h-0.5 w-80 bg-linear-to-r from-black to-transparent mr-2"></span>
                 وبلاگ مکین و تازه های آموزش وب
-                <span className="h-0.5 w-80 bg-gradient-to-l from-black to-transparent ml-2"></span>
+                <span className="h-0.5 w-80 bg-linear-to-l from-black to-transparent ml-2"></span>
             </div>
             <div
                 className="border border-gray-300 shadow-md overflow-visible rounded-lg"

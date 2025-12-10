@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function FAQ() {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const faqs = [
         { question: "یک سوال که برای فضای کار اشتراکی مکین استفاده می‌شود؟", answer: "Answer 1..." },
@@ -12,16 +12,16 @@ export default function FAQ() {
         { question: "یک سوال که برای فضای کار اشتراکی مکین استفاده می‌شود؟", answer: "Answer 3..." },
     ];
 
-    const toggleFAQ = (index) => {
+    const toggleFAQ = (index: number): void => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
     return (
         <div className="pt-10 min-h-screen">
             <div className="flex items-center justify-center text-center font-black text-3xl my-15 gap-5">
-                <span className="h-0.5 w-80 bg-gradient-to-r from-black to-transparent mr-2"></span>
+                <span className="h-0.5 w-80 bg-linear-to-r from-black to-transparent mr-2"></span>
                 سوالات پر تکرار
-                <span className="h-0.5 w-80 bg-gradient-to-l from-black to-transparent ml-2"></span>
+                <span className="h-0.5 w-80 bg-linear-to-l from-black to-transparent ml-2"></span>
             </div>
 
             <section className="max-w-[1200px] w-[98%] mx-auto mb-6 space-y-3 h-[500px]">
