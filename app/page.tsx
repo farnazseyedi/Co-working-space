@@ -8,10 +8,10 @@ import FeaturesSection from "./pages/HomePage/features-section";
 export default function Home() {
   return (
     <>
-      <Info />
-      <WebLog />
       <Header />
       <FeaturesSection />
+      <Info />
+      <WebLog />
       <FAQ />
       <Footer />
     </>
