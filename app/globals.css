@@ -1,5 +1,12 @@
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
 @import "tailwindcss/preflight";
 @import "tailwindcss/theme" layer(theme);
+
+
 
 @theme {
   --color-primary-100: #eaeefa;
@@ -86,3 +93,5 @@
 * {
   direction: rtl;
 }
+
+
