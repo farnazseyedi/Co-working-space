@@ -1,10 +1,13 @@
 "use client";
-import background from "@/images/home-page/back.jpg"
+import background from "@/images/home-page/back.jpg";
 import Image from "next/image";
 import logo from "@/images/home-page/logo.png";
 import { useEffect, useState } from "react";
+import WorkingHoursModal from "@/app/components/modals/working-hours-modal";
 
 function Header() {
+  const [openWorkingHours, setOpenWorkingHours] = useState(false);
+
   const HEADER_HEIGHT = 941;
   const [showNavbar, setShowNavbar] = useState(true);
 
@@ -86,20 +89,29 @@ function Header() {
         </div>
       )}
 
-        <div className="z-20 absolute flex flex-col mt-140 mr-40 gap-4">
-          <div className="text-4xl text-primary-700">فضای کار اشتراکی اکادمی مکین</div>
-          <div className="text-3xl text-primary-700">فضایی که کارت نیاز داره</div>
+      <div className="z-20 absolute flex flex-col mt-140 mr-40 gap-4">
+        <div className="text-4xl text-primary-700">
+          فضای کار اشتراکی اکادمی مکین
         </div>
+        <div className="text-3xl text-primary-700">فضایی که کارت نیاز داره</div>
+      </div>
       <div className="z-20 absolute">
         <div className="flex gap-2 mt-180 mr-40">
           <button className="w-[135px] h-14 bg-primary-500 text-white rounded-xl hover:bg-[#5167a6]">
             رزرو کن
           </button>
-          <button className="w-[233px] h-14 border-2 rounded-xl border-primary-500 hover:bg-primary-300 hover:border-none">
+          <button
+            onClick={() => setOpenWorkingHours(true)}
+            className="w-[233px] h-14 border-2 rounded-xl border-primary-500 hover:bg-primary-300 hover:border-none"
+          >
             مشاهده ساعت کاری
           </button>
         </div>
       </div>
+      <WorkingHoursModal
+        open={openWorkingHours}
+        onClose={() => setOpenWorkingHours(false)}
+      />
     </div>
   );
 }
