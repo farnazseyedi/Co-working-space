@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "@/images/home-page/logo.png";
 import { useEffect, useState } from "react";
 import WorkingHoursModal from "@/app/components/modals/working-hours-modal";
+import { AuthModal } from "./auth-modal";
 
 function Header() {
   const [openWorkingHours, setOpenWorkingHours] = useState(false);
@@ -81,9 +82,11 @@ function Header() {
             </ul>
 
             <div>
-              <button className="rounded-xl ml-10 flex my-5 items-center h-10 text-primary-500 border-primary-500 border justify-center py-4 px-6 hover:bg-primary-300 hover:border-none transition">
-                ورود | ثبت نام
-              </button>
+              <AuthModal>
+                <button className="rounded-xl ml-10 flex my-5 items-center h-10 text-primary-500 border-primary-500 border justify-center py-4 px-6 hover:bg-primary-300 hover:border-none transition">
+                  ورود | ثبت نام
+                </button>
+              </AuthModal>
             </div>
           </div>
         </div>
