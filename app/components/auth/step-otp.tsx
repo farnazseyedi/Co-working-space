@@ -17,15 +17,15 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+
 
 interface StepOtpProps {
   phoneNumber: string;
-  onBack: () => void;
+  
   onSuccess: (otp: string) => void;
 }
 
-export function StepOtp({ phoneNumber, onBack, onSuccess }: StepOtpProps) {
+export function StepOtp({ phoneNumber, onSuccess }: StepOtpProps) {
   const [timer, setTimer] = useState(94);
 
   const form = useForm<OtpFormValues>({
@@ -55,22 +55,17 @@ export function StepOtp({ phoneNumber, onBack, onSuccess }: StepOtpProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6 font-sans">
+    <div className="flex flex-col gap-6">
       <div className="relative flex items-center justify-center">
-        <button
-          onClick={onBack}
-          className="absolute right-0 p-1 rounded-full hover:bg-gray-100 transition-colors"
-        >
-          <ArrowRight className="w-5 h-5 text-gray-600" />
-        </button>
-        <h2 className="text-xl font-bold text-gray-900">
+       
+        <h2 className="text-xl font-bold text-neutral-900">
           کد تایید را وارد کنید
         </h2>
       </div>
 
-      <p className="text-sm text-center text-gray-500">
+      <p className="text-sm text-center text-neutral-900">
         کد ۵ رقمی به شماره{" "}
-        <span className="font-sans font-semibold text-gray-800 dir-ltr inline-block">
+        <span className="text-neutral-900 dir-ltr inline-block">
           {phoneNumber}
         </span>{" "}
         ارسال شد
@@ -87,30 +82,27 @@ export function StepOtp({ phoneNumber, onBack, onSuccess }: StepOtpProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <InputOTP
-                    maxLength={5}
-                    {...field}
-                  >
-                    <InputOTPGroup className="gap-2" dir="ltr">
+                  <InputOTP maxLength={5} {...field}>
+                    <InputOTPGroup className="gap-2">
                       <InputOTPSlot
-                        index={0}
-                        className="w-12 h-12 rounded-lg border border-gray-300 text-lg"
-                      />
-                      <InputOTPSlot
-                        index={1}
-                        className="w-12 h-12 rounded-lg border border-gray-300 text-lg"
-                      />
-                      <InputOTPSlot
-                        index={2}
-                        className="w-12 h-12 rounded-lg border border-gray-300 text-lg"
+                        index={4}
+                        className="w-14 h-14 rounded-lg border border-neutral-500 text-lg"
                       />
                       <InputOTPSlot
                         index={3}
-                        className="w-12 h-12 rounded-lg border border-gray-300 text-lg"
+                        className="w-14 h-14 rounded-lg border border-neutral-500 text-lg"
                       />
                       <InputOTPSlot
-                        index={4}
-                        className="w-12 h-12 rounded-lg border border-gray-300 text-lg"
+                        index={2}
+                        className="w-14 h-14 rounded-lg border border-neutral-500 text-lg"
+                      />
+                      <InputOTPSlot
+                        index={1}
+                        className="w-14 h-14 rounded-lg border border-neutral-500 text-lg"
+                      />
+                      <InputOTPSlot
+                        index={0}
+                        className="w-14 h-14 rounded-lg border border-neutral-500 text-lg"
                       />
                     </InputOTPGroup>
                   </InputOTP>
@@ -120,7 +112,7 @@ export function StepOtp({ phoneNumber, onBack, onSuccess }: StepOtpProps) {
             )}
           />
 
-          <div className="text-center text-xs text-gray-500 font-sans">
+          <div className="text-center text-xs text-neutral-900 font-sans">
             {timer > 0 ? (
               <span>{formatTime(timer)} مانده تا ارسال مجدد کد</span>
             ) : (
@@ -138,10 +130,10 @@ export function StepOtp({ phoneNumber, onBack, onSuccess }: StepOtpProps) {
 
           <Button
             type="submit"
-            className="w-full bg-[#1e2756] hover:bg-[#151b3d] text-white rounded-xl py-6 text-base font-medium"
+            className="w-full bg-primary-500 hover:bg-primary-400 text-white rounded-2xl py-6 font-medium"
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? "در حال بررسی..." : "ادامه"}
+            {form.formState.isSubmitting ? "در حال بررسی..." : "تایید"}
           </Button>
         </form>
       </Form>

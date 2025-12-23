@@ -13,14 +13,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+
 
 interface StepUserInfoProps {
-  onBack: () => void;
   onSuccess: (data: UserInfoFormValues) => void;
 }
 
-export function StepUserInfo({ onBack, onSuccess }: StepUserInfoProps) {
+export function StepUserInfo({  onSuccess }: StepUserInfoProps) {
   const form = useForm<UserInfoFormValues>({
     resolver: zodResolver(userInfoSchema),
     defaultValues: {
@@ -35,20 +34,14 @@ export function StepUserInfo({ onBack, onSuccess }: StepUserInfoProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6 font-sans" dir="rtl">
+    <div className="flex flex-col gap-6">
       <div className="relative flex items-center justify-center mb-2">
-        <button
-          onClick={onBack}
-          className="absolute right-0 p-1 rounded-full hover:bg-gray-100 transition-colors"
-          type="button"
-        >
-          <ArrowRight className="w-5 h-5 text-gray-600" />
-        </button>
+       
         <div className="text-center">
-          <h2 className="text-lg font-bold text-gray-900">
+          <h2 className="text-lg font-bold text-neutral-900">
             اطلاعات حساب کاربری رو کامل کن
           </h2>
-          <p className="text-xs text-gray-500 mt-1">برای تجربه امن‌تر</p>
+          <p className="text-xs text-neutral-600 mt-1">برای تجربه امن‌تر</p>
         </div>
       </div>
 
@@ -59,17 +52,17 @@ export function StepUserInfo({ onBack, onSuccess }: StepUserInfoProps) {
             name="fullName"
             render={({ field }) => (
               <FormItem className="space-y-1">
-                <FormLabel className="text-xs font-medium text-gray-700">
+                <FormLabel className="text-xs font-medium text-neutral-900">
                   نام و نام خانوادگی(اجباری)
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="محمدمهدی حسن‌پور"
-                    className="py-6 text-right rounded-xl border-gray-200 focus-visible:ring-blue-900 placeholder:text-gray-300"
+                    className="py-6 text-right rounded-xl border-neutral-400 focus-visible:placeholder-neutral-900"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500" />
+                <FormMessage className="text-xs text-error-500" />
               </FormItem>
             )}
           />
@@ -79,14 +72,14 @@ export function StepUserInfo({ onBack, onSuccess }: StepUserInfoProps) {
             name="nationalId"
             render={({ field }) => (
               <FormItem className="space-y-1">
-                <FormLabel className="text-xs font-medium text-gray-700">
+                <FormLabel className="text-xs font-medium text-neutral-900">
                   شماره ملی(اجباری)
                 </FormLabel>
                 <FormControl>
                   <Input
                     type="number"
-                    placeholder="1421791080"
-                    className="py-6 text-right rounded-xl border-gray-200 focus-visible:ring-blue-900 placeholder:text-gray-300 font-sans"
+                    placeholder="1234567890"
+                    className="py-6 text-right rounded-xl border-neutral-400 focus-visible:placeholder-neutral-900"
                     {...field}
                     onChange={(e) => {
                       const value = e.target.value.slice(0, 10);
@@ -102,10 +95,10 @@ export function StepUserInfo({ onBack, onSuccess }: StepUserInfoProps) {
           <div className="pt-4">
             <Button
               type="submit"
-              className="w-full bg-[#1e2756] hover:bg-[#151b3d] text-white rounded-xl py-6 text-base font-medium transition-all"
+              className="w-full bg-primary-500 hover:bg-primary-400 text-white rounded-2xl py-6 font-medium transition-all"
               disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? "در حال ثبت..." : "ادامه"}
+              {form.formState.isSubmitting ? "در حال ثبت..." : "ثبت"}
             </Button>
           </div>
         </form>

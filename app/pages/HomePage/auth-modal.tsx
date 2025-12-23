@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -13,6 +14,10 @@ import { StepPhone } from "@/app/components/auth/step-phone";
 import { StepOtp } from "@/app/components/auth/step-otp";
 import { StepUserInfo } from "@/app/components/auth/step-user-info";
 import { PhoneFormValues, UserInfoFormValues } from "@/lib/schemas/auth-schema";
+import { XIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import RightArrow from "@/icons/arrow-right.svg";
+import Image from "next/image";
 
 interface AuthModalProps {
   children: React.ReactNode;
@@ -55,27 +60,51 @@ export function AuthModal({ children }: AuthModalProps) {
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
 
-      <DialogContent className="sm:max-w-[400px] p-0 overflow-hidden bg-white rounded-[20px]">
+      <DialogContent
+        className="w-142.5 h-120.5 p-0 overflow-hidden bg-others-white1 rounded-3xl"
+        showCloseButton={false}
+      >
+        <DialogClose className="absolute top-9 left-9 border-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+          <XIcon className="h-4 w-4" />
+        </DialogClose>
         <DialogHeader className="sr-only">
           <DialogTitle>احراز هویت</DialogTitle>
         </DialogHeader>
 
-        <div className="p-8 pt-10">
+        <div className="flex justify-center items-center">
           {step === 1 && <StepPhone onSuccess={handlePhoneSubmit} />}
-
           {step === 2 && (
-            <StepOtp
-              phoneNumber={phoneNumber}
-              onSuccess={handleOtpSubmit}
-              onBack={() => setStep(1)}
-            />
+            <div>
+              <div>
+                <button
+                  onClick={() => setStep(1)}
+                  className="absolute right-9 top-8 text-neutral-900 hover:text-neutral-950"
+                >
+                  <Image src={RightArrow} alt="arrow" height={32} width={32} />
+                </button>
+              </div>
+              <div>
+                <StepOtp
+                  phoneNumber={phoneNumber}
+                  onSuccess={handleOtpSubmit}
+                />
+              </div>
+            </div>
           )}
-
           {step === 3 && (
-            <StepUserInfo
-              onSuccess={handleUserInfoSubmit}
-              onBack={() => setStep(2)}
-            />
+            <div>
+              <div>
+                <button
+                  onClick={() => setStep(2)}
+                  className="absolute right-9 top-8 text-neutral-900 hover:text-neutral-950"
+                >
+                  <Image src={RightArrow} alt="arrow" height={32} width={32} />
+                </button>
+              </div>
+              <div>
+                <StepUserInfo onSuccess={handleUserInfoSubmit} />
+              </div>
+            </div>
           )}
         </div>
       </DialogContent>
