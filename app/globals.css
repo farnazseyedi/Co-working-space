@@ -107,6 +107,7 @@ body {
 @tailwind utilities;
 
 * {
+  font-family: "Vazirmatn";
   direction: rtl;
 }
 
