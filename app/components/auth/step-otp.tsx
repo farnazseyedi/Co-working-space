@@ -10,18 +10,17 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/app/components/ui/form";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { Button } from "@/components/ui/button";
-
+} from "@/app/components/ui/input-otp";
+import { Button } from "@/app/components/ui/button";
 
 interface StepOtpProps {
   phoneNumber: string;
-  
+
   onSuccess: (otp: string) => void;
 }
 
@@ -57,7 +56,6 @@ export function StepOtp({ phoneNumber, onSuccess }: StepOtpProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="relative flex items-center justify-center">
-       
         <h2 className="text-xl font-bold text-neutral-900">
           کد تایید را وارد کنید
         </h2>

@@ -1,6 +1,3 @@
-import CoffeeIcon from "@/app/icons/home-page/coffee";
-import WifiIcon from "@/app/icons/home-page/wifi";
-
 function FeaturesSection() {
   return (
     <div className="bg-others-bg1 pt-6 px-15 pb-12">
@@ -13,7 +10,6 @@ function FeaturesSection() {
         </div>
         <div className="flex justify-between">
           <div className="flex flex-col justify-center items-center gap-8">
-            <WifiIcon className=" text-primary-500"/>
             <div className="text-neutral-900">اینترنت نامحدود</div>
             <div className="text-neutral-700">برای کار بدون وقفه</div>
           </div>
@@ -24,7 +20,6 @@ function FeaturesSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center gap-8">
-            <CoffeeIcon className="text-primary-500" />
             <div className="text-neutral-900">کافه</div>
             <div className="text-neutral-700">برای استراحت های کوتاه</div>
           </div>

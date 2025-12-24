@@ -10,16 +10,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
+} from "@/app/components/ui/form";
+import { Input } from "@/app/components/ui/input";
+import { Button } from "@/app/components/ui/button";
 
 interface StepUserInfoProps {
   onSuccess: (data: UserInfoFormValues) => void;
 }
 
-export function StepUserInfo({  onSuccess }: StepUserInfoProps) {
+export function StepUserInfo({ onSuccess }: StepUserInfoProps) {
   const form = useForm<UserInfoFormValues>({
     resolver: zodResolver(userInfoSchema),
     defaultValues: {
@@ -36,7 +35,6 @@ export function StepUserInfo({  onSuccess }: StepUserInfoProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="relative flex items-center justify-center mb-2">
-       
         <div className="text-center">
           <h2 className="text-lg font-bold text-neutral-900">
             اطلاعات حساب کاربری رو کامل کن
