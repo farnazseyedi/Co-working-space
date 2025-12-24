@@ -36,8 +36,8 @@ export default function Typewriter() {
     }, [text, isDeleting, wordIndex, words]);
 
     return (
-        <span style={{ fontSize: "24px", fontWeight: "bold" }}>
-            با ما خیالت از {text} راحته
+        <span style={{ fontSize: "35px", fontWeight: "bold" }} className="font-extrabold">
+            با ما خیالت از {text} راحته!
         </span>
     );
 }
