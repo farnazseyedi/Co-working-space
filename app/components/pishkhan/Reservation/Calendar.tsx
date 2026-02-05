@@ -2,8 +2,8 @@
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import jalaali from "jalaali-js";
-import { toPersianNumber } from "../../../lib/Persian";
-import { cn } from "../../../lib/Persian";
+import { toPersianNumber } from "../../../../lib/persian";
+import { cn } from "../../../../lib/persian";
 
 const weekDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
 const persianMonths = [
@@ -57,7 +57,7 @@ export default function RangeCalendar({
     setViewDate((prev) =>
       prev.month === 1
         ? { year: prev.year - 1, month: 12 }
-        : { ...prev, month: prev.month - 1 }
+        : { ...prev, month: prev.month - 1 },
     );
   };
 
@@ -65,13 +65,13 @@ export default function RangeCalendar({
     setViewDate((prev) =>
       prev.month === 12
         ? { year: prev.year + 1, month: 1 }
-        : { ...prev, month: prev.month + 1 }
+        : { ...prev, month: prev.month + 1 },
     );
   };
 
   const getFullDateString = (day: number) =>
     `${viewDate.year}-${String(viewDate.month).padStart(2, "0")}-${String(
-      day
+      day,
     ).padStart(2, "0")}`;
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -95,7 +95,7 @@ export default function RangeCalendar({
     }
     onDateChange(
       openInput === "start" ? date : tempStart,
-      openInput === "end" ? date : tempEnd
+      openInput === "end" ? date : tempEnd,
     );
   };
 
@@ -167,7 +167,7 @@ export default function RangeCalendar({
                     isEnd ? "bg-secondary-500 text-white rounded-l-full" : "",
                     !inRange && !isStart && !isEnd
                       ? "hover:bg-orange-100 rounded"
-                      : ""
+                      : "",
                   )}
                 >
                   {toPersianNumber(day)}

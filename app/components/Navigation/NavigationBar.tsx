@@ -15,8 +15,8 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { title: "پیشخوان", href: "/pages/dashboard", Icon: Icons.PishkhanIcon },
-  { title: "رزروها", href: "/reservations", Icon: Icons.ReservationIcon },
-  { title: "کیف پول", href: "/finance", Icon: Icons.CoinIconNav },
+  { title: "پیام ها", href: "/pages/messages", Icon: Icons.ReservationIcon },
+  { title: "کیف پول", href: "/pages/finance", Icon: Icons.CoinIconNav },
 ];
 
 export default function Sidebar() {

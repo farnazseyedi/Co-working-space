@@ -1,7 +1,7 @@
 "use client";
 
-import { toPersianNumber, formatPrice } from "../../../lib/Persian";
-import { Button } from "../../ui/Button";
+import { toPersianNumber, formatPrice } from "../../../../lib/persian";
+import { Button } from "../../ui/button";
 interface BookingSummaryProps {
   daysCount: number;
   basePrice: number;
