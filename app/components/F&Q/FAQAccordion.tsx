@@ -2,15 +2,9 @@
 
 import { useState } from "react";
 import { FAQItem } from "./F&Q";
-import TrashIcon from "@/app/assets/icons/contentManagement/TrashIcon";
 
 type FAQAccordionProps = {
   data?: FAQItem[];
-};
-
-const statusColor: Record<string, string> = {
-  بیشتر: "text-primary-500",
-  کمتر: "text-primary-500",
 };
 
 export default function FAQAccordion({ data }: FAQAccordionProps) {
@@ -19,11 +13,6 @@ export default function FAQAccordion({ data }: FAQAccordionProps) {
   const statusColor: Record<string, string> = {
     بیشتر: "text-primary-500",
     کمتر: "text-primary-500",
-  };
-
-  const removeFAQ = (index: number) => {
-    // اگر میخوای حذف آیتم‌ها هم کار کنه، باید remove رو به parent بده
-    console.log("remove:", index);
   };
 
   return (
