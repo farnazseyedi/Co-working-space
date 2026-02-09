@@ -28,6 +28,9 @@ export default function Dashboard() {
         <div className="mt-6 space-y-4">
           <WalletPanel />
         </div>
+        <div className="px-6 py-4 flex items-center justify-between">
+          <h1 className="text-lg font-bold">گردش کیف پول</h1>
+        </div>
       </div>
     </div>
   );
