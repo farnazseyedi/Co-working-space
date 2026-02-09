@@ -1,8 +1,8 @@
 "use client";
 
 import { toPersianNumber, formatPrice } from "@/lib/persian";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Button } from "@/app/components/ui/button";
+import { Card } from "@/app/components/ui/card";
 
 interface BookingSummaryProps {
   daysCount: number;
@@ -35,6 +35,7 @@ export default function BookingSummary({
             {toPersianNumber(daysCount)} روز
           </span>
         </div>
+
         <div className="flex justify-between items-center">
           <span>قیمت پایه :</span>
           <span className="text-neutral-500 text-base">
@@ -47,12 +48,15 @@ export default function BookingSummary({
             {formatPrice(totalPrice)} تومان
           </span>
         </div>
+
         <div className="flex justify-between items-center">
           <span>تخفیف پلکانی :</span>
           <span className="text-neutral-500">هیچی</span>
         </div>
       </div>
+
       <div className="h-px bg-neutral-400 w-full my-6"></div>
+
       <div className="flex justify-between items-center mb-8">
         <span className="font-bold text-slate-900 text-base">
           مبلغ قابل پرداخت :
@@ -61,6 +65,7 @@ export default function BookingSummary({
           {isLoading ? "در حال محاسبه..." : `${formatPrice(finalPrice)} تومان`}
         </span>
       </div>
+
       <Button
         className="w-full bg-primary-500 hover:bg-primary-400 text-white py-6 text-base rounded-xl"
         disabled={isLoading}

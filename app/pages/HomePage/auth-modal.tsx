@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/app/components/ui/dialog";
 import { StepPhone } from "@/app/components/auth/step-phone";
 import { StepOtp } from "@/app/components/auth/step-otp";
 import { StepUserInfo } from "@/app/components/auth/step-user-info";
