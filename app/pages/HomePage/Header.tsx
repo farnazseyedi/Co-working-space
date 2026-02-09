@@ -48,8 +48,8 @@ function Header() {
 
       {showNavbar && (
         <div className="fixed top-0 left-0 w-full z-50 flex justify-center items-center h-20">
-          <div className=" flex w-[1320px] bg-others-white1 justify-between gap-10 h-20 mt-7 rounded-xl">
-            <div className="w-[123px] h-20 flex gap-2 mr-10">
+          <div className=" flex w-330 bg-others-white1 justify-between gap-10 h-20 mt-7 rounded-xl">
+            <div className="w-30.75 h-20 flex gap-2 mr-10">
               <div className="flex justify-center h-16 items-center mt-2">
                 <Image src={logo} width={64} height={64} alt="logo" />
               </div>
@@ -62,7 +62,7 @@ function Header() {
               <li className="relative group cursor-pointer flex flex-col items-center">
                 <span className="leading-none">صفحه اصلی</span>
 
-                <span className="mt-3 h-[3px] w-[3px] rounded-full bg-black transition-all duration-300 ease-out group-hover:w-full group-hover:h-0.5 group-hover:bg-tertiary-500"></span>
+                <span className="mt-3 h-0.75 w-0.75 rounded-full bg-black transition-all duration-300 ease-out group-hover:w-full group-hover:h-0.5 group-hover:bg-tertiary-500"></span>
               </li>
               <li className="relative group cursor-pointer flex flex-col items-center">
                 <span className="leading-none">بلاگ </span>
@@ -75,7 +75,12 @@ function Header() {
                 <span className="mt-3 h-[3px] w-[2.5px] rounded-full bg-black transition-all duration-300 ease-out group-hover:w-full group-hover:h-0.5 group-hover:bg-tertiary-500"></span>
               </li>
               <li className="relative group cursor-pointer flex flex-col items-center">
-                <span className="leading-none">تماس با ما</span>
+                <span className="leading-none"> فراتر از یک اکادمی</span>
+
+                <span className="mt-3 h-[3px] w-[2.5px] rounded-full bg-black transition-all duration-300 ease-out group-hover:w-full group-hover:h-0.5 group-hover:bg-tertiary-500"></span>
+              </li>
+              <li className="relative group cursor-pointer flex flex-col items-center">
+                <span className="leading-none"> وبلاگ</span>
 
                 <span className="mt-3 h-[3px] w-[2.5px] rounded-full bg-black transition-all duration-300 ease-out group-hover:w-full group-hover:h-0.5 group-hover:bg-tertiary-500"></span>
               </li>
