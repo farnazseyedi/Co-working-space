@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NavigatinBar from "../../components/Navigation/NavigationBar";
 import PersianCalendar from "../../components/pishkhan/pishTable/PersianCalendar";
-import AddButton from "@/app/components/buttons/AddButton";
+// import AddButton from "@/app/components/buttons/AddButton";
 import DaySlider from "../../components/pishkhan/DaySlider/DaySlider";
 import ReservationModal from "../../components/modals/ReservationModal";
 import HomeIcon from "@/app/assets/icons/header/HomeIcon";
@@ -62,7 +62,7 @@ export default function Dashboard() {
               <h1>لیست رزورهای امروز</h1>
             </div>
 
-            <AddButton onClick={() => setShowModal(true)} />
+            {/* <AddButton onClick={() => setShowModal(true)} /> */}
           </div>
 
           <PersianCalendar activeIndex={activeIndex} />
