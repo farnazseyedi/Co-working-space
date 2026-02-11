@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import BlurCard from "./BlurCard";
 import SuggestionChip from "./SuggestionChip";
+import Submit from "@/app/assets/icons/wallet/Submit";
 
 const englishToPersian = (str: string) => {
   const persianNumbers = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
@@ -104,48 +105,53 @@ export default function RechargePanel() {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-md border-none overflow-hidden max-w-md mx-auto">
-      <BlurCard />
+    <div className="flex bg-white rounded-2xl shadow-md border-none overflow-hidden">
+      <div className=" absolute flex flex-col">
+        <div className="flex relative w-fit">
+          <BlurCard />
 
-      <div className="relative self-end bg-indigo-100 text-indigo-800 px-6 py-3 rounded-b-3xl rounded-t-lg text-sm font-medium">
-        موجودی فعلی شما: ۴۳,۰۰۰ تومان
-      </div>
-
-      <div className="z-10 flex flex-col gap-6 p-4">
-        <p className="text-gray-700 text-sm text-center">
-          برای شارژ کیف پول مبلغ دلخواه خود را در باکس زیر بنویسید:
-        </p>
-
-        <div className="flex flex-col gap-2">
-          <label className="text-sm text-gray-600">مبلغ مورد نظر</label>
-          <div className="relative">
-            <input
-              type="text"
-              value={amount}
-              onChange={handleChange}
-              placeholder="۳۰۰۰۰۰"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-right focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
-              تومان
-            </span>
+          <div className="absolute inset-0 flex ml-8 items-center justify-center">
+            <div className=" text-neutral-800 flex flex-col items-center justify-center rounded-xl font-medium">
+              <div>موجودی فعلی شما:</div>
+              <div className="text-xl">۴۳,۰۰۰ تومان</div>
+            </div>
           </div>
-          <span className="text-xs text-blue-600">{amountWords}</span>
         </div>
+      </div>
+      <div className="flex justify-center items-center mr-56 relative">
+        <div className="z-10 flex flex-col justify-center items-start mt-30 gap-6 p-4">
+          <div className="text-neutral-800 text-sm text-center">
+            برای شارژ کیف پول مبلغ دلخواه خود را در باکس زیر بنویسید:
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-sm text-neutral-900">مبلغ مورد نظر</label>
+            <div className="relative">
+              <input
+                type="text"
+                value={amount}
+                onChange={handleChange}
+                placeholder="۳۰۰۰۰۰"
+                className="w-full border border-gray-300 rounded-lg px-56 py-3 flex focus:outline-none focus:ring-2 focus:ring-tertiary-600"
+              />
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
+                تومان
+              </span>
+            </div>
+            <span className="text-xs text-blue-600">{amountWords}</span>
+          </div>
 
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          <span className="text-gray-600">مبالغ پیشنهادی:</span>
-          {["۵۰,۰۰۰ تومان", "۱۰۰,۰۰۰ تومان", "۲۰۰,۰۰۰ تومان"].map((label) => (
-            <SuggestionChip
-              key={label}
-              label={label}
-              onClick={() => handleSuggestionClick(label)}
-            />
-          ))}
-        </div>
-
-        <div className="pt-4">
-          <button className="bg-primary-500 hover:bg-indigo-800 text-white px-8 py-3 rounded-xl shadow-md transition font-medium">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className="text-neutral-950">مبالغ پیشنهادی:</span>
+            {["۵۰,۰۰۰ تومان", "۱۰۰,۰۰۰ تومان", "۲۰۰,۰۰۰ تومان"].map((label) => (
+              <SuggestionChip
+                key={label}
+                label={label}
+                onClick={() => handleSuggestionClick(label)}
+              />
+            ))}
+          </div>
+          <button className="self-end flex gap-0.5 bg-primary-500 text-white px-8 py-3 rounded-md shadow-md transition font-medium hover:opacity-90">
+            <Submit />
             تایید و پرداخت
           </button>
         </div>
