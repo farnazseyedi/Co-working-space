@@ -3,6 +3,7 @@
 import { toPersianNumber, formatPrice } from "@/lib/persian";
 import { Button } from "@/app/components/ui/button";
 import { Card } from "@/app/components/ui/card";
+import { useRouter } from "next/navigation";
 
 interface BookingSummaryProps {
   daysCount: number;
@@ -15,9 +16,19 @@ export default function BookingSummary({
   basePrice,
   isLoading = false,
 }: BookingSummaryProps) {
+  const router = useRouter();
+
   const totalPrice = daysCount * basePrice;
   const discount = 0;
   const finalPrice = totalPrice - discount;
+
+  const handlePaymentClick = () => {
+    if (daysCount > 0) {
+      router.push(`/pages/payment?days=${daysCount}&price=${basePrice}`);
+    } else {
+      alert("لطفاً ابتدا روزهای مورد نظر خود را انتخاب کنید.");
+    }
+  };
 
   return (
     <Card className="w-162 h-full p-6 shadow-sm border border-gray-100 rounded-3xl">
@@ -67,10 +78,10 @@ export default function BookingSummary({
           {isLoading ? "در حال محاسبه..." : `${formatPrice(finalPrice)} تومان`}
         </span>
       </div>
-
       <Button
         className="w-full bg-primary-500 hover:bg-primary-400 text-white py-6 text-base rounded-xl"
-        disabled={isLoading}
+        disabled={isLoading || daysCount === 0}
+        onClick={handlePaymentClick}
       >
         ثبت و پرداخت
       </Button>
